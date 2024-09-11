@@ -7,9 +7,9 @@
   Add your open source license, GitHub uses MIT license.
 -->
 
-# Conjugation of dye and antibody
+# Microfluidic
 
-_The process of attaching fluorescent molecules to antibodies._
+_The implementation of microfluidic on the OPM microscope._
 
 </header>
 
@@ -22,65 +22,70 @@ _The process of attaching fluorescent molecules to antibodies._
 -->
 
 ## Materials:
-  - Primary Antibody:
-    [Mouse anti-Human CD45 (HI30)](https://www.ptglab.com/products/CD45-Antibody-65109-1-Ig.htm)
-  - Secondary Antibody:
-    [Goat anti-Mouse IgG](https://www.bioscience.co.uk/product~73025)
-  - Dye:
-    [Atto 647N](https://www.aatbio.com/products/atto-647n-nhs-ester) supplied with an NHS (N-hydroxysuccinimde) ester reactive group.
-  - Phosphate buffered saline (PBS)
-  - Sodium bicarbonate (SoBi), 1M, pH8.5
+### Syringe Pump
+- AL-1000, Aladdin SyringeONE Programmable Syringe Pump
+- Channels:	1
+- Type:	Infusion / Withdrawal
+- Flow Range:	0.001 µL/hr (0.5 µL syringe) to 3470 mL/hr (140 mL syringe)
+- Dispensing Accuracy: ±1%
+- Syringe Sizes Accepted:	0.5 µL to 60 mL or 140 mL partially filled
+- Linear Force:	35 lb at low speed; 18 lb at maximum speed
 
+### Needle
+- 23 Gauge Fluid Dispensing Tip, 
+- TE Series, Orange, 
+- Pack of 50 -  923050-TE
+ 
+### Tubing
+- PTFE Microtubing,
+- Inner Diameter: 0.56 mm,
+- Outer Diameter: 1.07 mm, 
+- Autoclavable
+ 
+### Syringe
+- Eccentric Luer-Slip Tip Three-Part Syringe, 
+- Volume: 2.5 mL, 
+- Connection Type: Centric Luer-lock
+
+### Microfluidic chip
+- Cutom-designed and built 
+- Straight channel
+- 20 μm (width) × 30 μm (depth) channel size
+
+<!-- Divider -->
 ## Methods:
-### Buffer Exchange in Gel Filteration Column
-1. Take an aliquot of protein
-2. A quick spin
-3. Spin for 2min (1000)
-4. Run PBS 4 times (500 µL) and spin 4min (1000)
-5. Run the protein through
-6. Take the protein from the collection tube
+### Chip Fabrication
+The chips were fabricated based on PDMS (Polydimethylsiloxane) using lithography to create the microfluidic channels on a silicon wafer.
 
-### Bioconjugation for primary CD45
-1. Add 2 µL of SoBi to the proteins and mix them
-2. Add 2 µL of dye to the mixture
-3. Take 1.5 µL of the buffer to measure the concentration using UV-Vis
-4. Leave it at room temperature (1 hour)
-5. Run the buffer through a new gel filteration column
+### Beads in flow
+#### Preparation:
+- Calibrate the syringe pump and ensure all connections (tubing, needle, syringe) are secure and leak-free.
+- Prepare the bead suspension with a suitable concentration to avoid overcrowding in the channel
+- Load the bead sample into the syringe.
 
-### Bioconjugation for secondary
-1. Add 5 µL of SoBi to the proteins and mix them
-2. Add 6 µL of dye to the mixture
-3. Take 1.5 µL of the buffer to measure the concentration using UV-Vis
-4. Leave it at room temperature (1 hour)
-5. Run the buffer through a new gel filteration column
-   
-## FAQs: 
-**Why do we use sodium bicarbonate?**
+#### Flow and Imaging:
+- Set the desired flow rate on the syringe pump.
+- Start the flow and begin time-lapse imaging using Multi-D acquisition in MicroManager.
+- Capture images at different flow rates to understand the behavior of beads under varying conditions.
 
-A sodium bicarbonate (SoBi) buffer provides the optimal pH for the NHS ester of the dye to react efficiently with the antibody.
+#### Analysis:
+- Use the spot counter to detect and count the beads.
+- Analyze the fluorescence intensity and movement of beads.
 
-**Why do we exchange the buffer in gel filteration column?**
+#### Optimisation:
+Adjust the flow rates, bead concentration, and imaging parameters based on initial results to optimize the experiment.
 
-To be able to filter the sodium azide in protein solution. 
-
-## Appendix
-### Calculations for primary CD45 bioconjugation
-| Material | Concentration | Amount | Concentration in mixture |
-| -------- | ------- | ------- | ------- |
-| Mouse Anti-Human CD45 | 3.3 µM | 20 µL | 2.7 µM  | 
-| Atto 647N       | 1 mM   | 2 µL  | 83.3 µM | 
-| SoBi            | 1 M    | 2 µL  | 8e+5 µM |
-
-### Calculations for secondary bioconjugation
-| Material | Concentration | Amount | Concentration in mixture |
-| -------- | ------- | ------- | ------- |
-| Goat Anti-Mouse | 3.3 µM | 50 µL | 2.7 µM  | 
-| Atto 647N       | 1 mM   | 6 µL  | 98.3 µM | 
-| SoBi            | 1 M    | 5 µL  | 8e+5 µM |
 
 > [!NOTE]
-> Concentration in mixture is calculated using: $$Concentration.in.mixture = \frac{Concentration*Amount}{Total Volume}$$
- 
+> Ensure that the syringe pump is calibrated accurately. You might want to run a few preliminary tests to verify the flow rates.
+
+<!-- Divider -->
+## FAQs: 
+
+
+<!-- Divider -->
+## Appendix
+
 <footer>
 
 <!--
